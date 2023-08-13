@@ -123,3 +123,26 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+'''
+    RESTFRAMEWORK Settings
+
+    Permisson Settings for the Django RESTFRAMEWORK
+
+    Options
+    -------
+
+        AllowAny
+        IsAuthenticated
+        IsAdminUser
+        IsAuthenticatedOrReadOnly
+    
+'''
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ]
+}
+
+

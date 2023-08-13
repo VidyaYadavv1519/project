@@ -25,7 +25,7 @@ load_dotenv()
 SECRET_KEY = os.environ['SECRET_KEY']
 DEBUG = os.environ['DEBUG']
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -75,10 +75,24 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+print(
+    os.environ['DATABASE_NAME'],
+    os.environ['DATABASE_HOST'],
+    os.environ['DATABASE_USER'],
+    os.environ['DATABASE_PASSWORD'],
+    os.environ['DATABASE_HOST'],
+    os.environ['DATABASE_PORT']
+)
+
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": os.environ['DATABASE_NAME'],
+        "USER": os.environ['DATABASE_USER'],
+        "PASSWORD": os.environ['DATABASE_PASSWORD'],
+        "HOST": os.environ['DATABASE_HOST'],
+        "PORT": os.environ['DATABASE_PORT'],
     }
 }
 

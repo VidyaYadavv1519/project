@@ -1,5 +1,6 @@
 from django.db import models
 from django.conf import settings
+from django.core.validators import MaxValueValidator, MinValueValidator
 
 
 class Tag(models.Model):
@@ -7,6 +8,17 @@ class Tag(models.Model):
 
     def __str__(self):
         return self.name
+    
+class Review(models.Model):
+    reviewer = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    body = models.CharField(max_length=200, blank=True)
+    rating = models.PositiveSmallIntegerField(validators=[
+            MaxValueValidator(5),
+            MinValueValidator(0)
+        ], blank=False)
+    
+    def __str__(self):
+        return str(self.reviewer) + ' | ' + str(self.rating)
 
 
 class Project(models.Model):
@@ -17,6 +29,7 @@ class Project(models.Model):
     description = models.CharField(max_length=200)
     private = models.BooleanField(default=False)
     tags = models.ManyToManyField(Tag, blank=True)
+    reviews = models.ManyToManyField(Review, blank=True)
 
     def __str__(self):
         return self.title + " | " + str(self.creator)

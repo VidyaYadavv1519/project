@@ -22,3 +22,15 @@ The frontend is made with vite and vue.js.
 
 ## LICENSE
 [License](MIT-LICENSE.txt)
+
+## How to install
+1. Install  [Docker](https://docs.docker.com/install) and [Docker-Compose](https://docs.docker.com/compose)
+2. Clone this repository with the following command:
+    ```bash
+    git clone https://github.com/to-sta/project.git
+    ```
+3. Then run docker-compose with the following command:
+    ```bash
+    docker-compose build
+    docker-compose up
+    ```

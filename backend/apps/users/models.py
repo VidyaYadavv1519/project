@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import BaseUserManager, AbstractBaseUser
 
-'''
+"""
     User
     --------
         Profile
@@ -13,7 +13,8 @@ from django.contrib.auth.models import BaseUserManager, AbstractBaseUser
         -----------
         - is_admin
         - is_staff
-'''
+"""
+
 
 class CustomUserManager(BaseUserManager):
     def create_user(self, email, password=None):

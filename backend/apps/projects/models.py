@@ -8,17 +8,17 @@ class Tag(models.Model):
 
     def __str__(self):
         return self.name
-    
+
+
 class Review(models.Model):
     reviewer = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     body = models.CharField(max_length=200, blank=True)
-    rating = models.PositiveSmallIntegerField(validators=[
-            MaxValueValidator(5),
-            MinValueValidator(0)
-        ], blank=False)
-    
+    rating = models.PositiveSmallIntegerField(
+        validators=[MaxValueValidator(5), MinValueValidator(0)], blank=False
+    )
+
     def __str__(self):
-        return str(self.reviewer) + ' | ' + str(self.rating)
+        return str(self.reviewer) + " | " + str(self.rating)
 
 
 class Project(models.Model):

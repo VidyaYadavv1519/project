@@ -3,8 +3,9 @@ from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.contrib.auth.models import Group
 from .models import User
 
+
 class UserAdmin(BaseUserAdmin):
-    list_display = ["email", "is_staff","is_admin"]
+    list_display = ["email", "is_staff", "is_admin"]
     list_filter = ["is_admin"]
     fieldsets = [
         (None, {"fields": ["email", "password"]}),

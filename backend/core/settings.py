@@ -39,14 +39,14 @@ INSTALLED_APPS = [
     "apps.projects",
     "apps.users",
     "rest_framework",
-    'corsheaders',
+    "corsheaders",
 ]
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
-    'corsheaders.middleware.CorsMiddleware',
+    "corsheaders.middleware.CorsMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
@@ -79,14 +79,14 @@ WSGI_APPLICATION = "core.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-'''
+"""
     Env variable SQLLITE is used for development and testing.
-'''
-if os.environ['SQLLITE']:
+"""
+if os.environ["SQLLITE"]:
     DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': 'db.sqlite3', 
+        "default": {
+            "ENGINE": "django.db.backends.sqlite3",
+            "NAME": "db.sqlite3",
         }
     }
 else:

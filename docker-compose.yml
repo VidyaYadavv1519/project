@@ -31,6 +31,7 @@ services:
       - DATABASE_PORT=${DATABASE_PORT}
       - DEBUG=${DEBUG}
       - SECRET_KEY=${SECRET_KEY}
+      - SQLLITE=False
     depends_on:
       - db
     restart: always

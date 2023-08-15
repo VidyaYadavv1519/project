@@ -1,8 +1,3 @@
-<script setup lang="ts">
-import Header from './components/Header/header.vue'
-import Footer from './components/Footer/footer.vue'
-</script>
-
 <template>
   <body class="min-h-screen pt-20 bg-black">
     <Header />
@@ -10,3 +5,9 @@ import Footer from './components/Footer/footer.vue'
     <Footer />
   </body>
 </template>
+
+<script setup lang="ts">
+import Header from './components/Header/header.vue'
+import Footer from './components/Footer/footer.vue'
+
+</script>

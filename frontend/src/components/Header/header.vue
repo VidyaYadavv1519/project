@@ -33,20 +33,10 @@
 </template>
 
 <script setup lang="ts">
-defineProps<{
-    navItems: {
-        name: string;
-    }
-}>();
+
 const navItems = [
-    {
-        name: "Home"
-    },
-    {
-        name: "About"
-    },
-    {
-        name: "Explore"
-    }
+    { name: "Home" },
+    { name: "About" },
+    { name: "Explore" }
 ];
 </script>

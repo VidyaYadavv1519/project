@@ -11,7 +11,7 @@ services:
     ports:
       - "5432:5432"
 
-  django:
+  backend:
     build:
       context: ./backend
     container_name: django
@@ -34,3 +34,13 @@ services:
     depends_on:
       - db
     restart: always
+
+  frontend:
+    build:
+      context: ./frontend
+    container_name: vue
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    ports:
+      - "3000:3000"

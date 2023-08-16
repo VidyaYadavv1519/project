@@ -49,3 +49,8 @@ The frontend is made with vite and vue.js.
     docker-compose build
     docker-compose up
     ```
+
+5. To use the django backend you have to create a superuser first.
+    ```bash
+    python manage.py createsuperuser
+    ```

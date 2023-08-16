@@ -1,6 +1,7 @@
 <template>
   <body class="min-h-screen pt-20 bg-black">
     <Header />
+    <router-view></router-view>
     <main class="h-screen mb-auto"></main>
     <Footer />
   </body>

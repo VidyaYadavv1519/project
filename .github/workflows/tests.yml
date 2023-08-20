@@ -3,16 +3,21 @@ name: Tests
 on:
   push:
     branches: master
-    paths-ignore:
-      - "**/migrations/*"
   pull_request:
     branches: master
-    paths-ignore:
-      - "**/migrations/*"
 
 jobs:
   django:
     runs-on: ubuntu-latest
+    env:
+      DATABASE_NAME: ${{secrets.DATABASE_NAME}}
+      DATABASE_USER: ${{ secrets.DATABASE_USER}}
+      DATABASE_PASSWORD: ${{ secrets.DATABASE_PASSWORD}}
+      DATABASE_HOST: ${{ secrets.DATABASE_HOST}}
+      DATABASE_PORT: ${{ secrets.DATABASE_PORT}}
+      DEBUG: ${{vars.DEBUG}}
+      SECRET_KEY: ${{ secrets.SECRET_KEY }}
+      SQLLITE: ${{ vars.SQLLITE}}
     steps:
       - uses: actions/checkout@v3
       - name: Set up Python 3.11
@@ -36,8 +41,5 @@ jobs:
       - uses: actions/checkout@v3
       - uses: psf/black@stable
         with:
-          options: 
-            --check --verbose --exclude "migrations/" 
+          options: --check --verbose --exclude "migrations/"
           src: ./backend
-      
-      

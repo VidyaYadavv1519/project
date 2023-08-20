@@ -2,11 +2,11 @@ name: Tests
 
 on:
   push:
-    branches: main
+    branches: master
     paths-ignore:
       - "**/migrations/*"
   pull_request:
-    branches: main
+    branches: master
     paths-ignore:
       - "**/migrations/*"
 

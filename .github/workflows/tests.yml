@@ -10,14 +10,14 @@ jobs:
   django:
     runs-on: ubuntu-latest
     env:
-      DATABASE_NAME: ${{secrets.DATABASE_NAME}}
+      DATABASE_NAME: ${{ secrets.DATABASE_NAME}}
       DATABASE_USER: ${{ secrets.DATABASE_USER}}
       DATABASE_PASSWORD: ${{ secrets.DATABASE_PASSWORD}}
       DATABASE_HOST: ${{ secrets.DATABASE_HOST}}
       DATABASE_PORT: ${{ secrets.DATABASE_PORT}}
-      DEBUG: ${{vars.DEBUG}}
+      DEBUG: ${{ env.DEBUG}}
       SECRET_KEY: ${{ secrets.SECRET_KEY }}
-      SQLLITE: ${{ vars.SQLLITE}}
+      SQLLITE: ${{ env.SQLLITE}}
     steps:
       - uses: actions/checkout@v3
       - name: Set up Python 3.11

@@ -10,6 +10,7 @@ jobs:
 
   django:
     runs-on: ubuntu-latest
+    environment: env
     env:
       DATABASE_NAME: ${{secrets.DATABASE_NAME}}
       DATABASE_USER: ${{secrets.DATABASE_USER}}

@@ -1,9 +1,8 @@
 from rest_framework import serializers
 from .models import Project
 
-class ProjectSerializer(serializers.ModelSerializer):
-    topics = serializers.PrimaryKeyRelatedField(queryset=Topic.objects.all(), many=True)  # Add this line
 
+class ProjectSerializer(serializers.ModelSerializer):
     class Meta:
         model = Project
         fields = [
@@ -15,5 +14,5 @@ class ProjectSerializer(serializers.ModelSerializer):
             "description",
             "private",
             "tags",
-            "topics",  
+            "topics",
         ]

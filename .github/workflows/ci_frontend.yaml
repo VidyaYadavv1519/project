@@ -1,4 +1,4 @@
-name: backend
+name: frontend
 
 on:
   push:
@@ -16,6 +16,6 @@ jobs:
         - name: Run Prettier
           uses: creyD/prettier_action@v4.3 
           with:
-            working_directory: ./frontend
-            dry: True
+            working_directory: frontend
+            dry: true
             prettier_options: --check

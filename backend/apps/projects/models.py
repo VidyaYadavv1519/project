@@ -1,6 +1,7 @@
 from django.db import models
 from django.conf import settings
 from django.core.validators import MaxValueValidator, MinValueValidator
+import uuid
 
 
 class Tag(models.Model):
@@ -11,6 +12,7 @@ class Tag(models.Model):
 
 
 class Review(models.Model):
+    id = models.UUIDField(primary_key=True,default=uuid.uuid4, editable=False)
     reviewer = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     body = models.CharField(max_length=200, blank=True)
     rating = models.PositiveSmallIntegerField(
@@ -29,6 +31,7 @@ class Topic(models.Model):
 
 
 class Project(models.Model):
+    id = models.UUIDField(primary_key=True,default=uuid.uuid4, editable=False)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     creator = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
@@ -41,3 +44,9 @@ class Project(models.Model):
 
     def __str__(self):
         return self.title + " | " + str(self.creator)
+
+class ProjectMembers(models.Model):
+    id = models.UUIDField(primary_key=True,default=uuid.uuid4, editable=False)
+    updated_at = models.DateTimeField(auto_now=True)
+    project = models.ForeignKey(Project, on_delete=models.CASCADE)
+    user = models.ForeignKey(settings.USER_AUTH_MODEL, on_delete=models.CASCADE, blank=True)

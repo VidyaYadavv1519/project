@@ -22,7 +22,6 @@ jobs:
             options: --check --verbose --exclude "migrations/"
             src: ./backend
         - name: Run Flake8 lint
-          working-directory: ./backend
           run: |
             pip install Flake8
             flake8 ./backend --exclude migrations,settings.py --max-line-length=88

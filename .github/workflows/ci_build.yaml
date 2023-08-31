@@ -1,4 +1,4 @@
-name: Tests
+name: build
 
 on:
   push:
@@ -8,7 +8,7 @@ on:
 
 jobs:
 
-  django:
+  build:
     runs-on: ubuntu-latest
     environment: env
     env:
@@ -74,15 +74,6 @@ jobs:
         working-directory: ./frontend
         run: npm test --if-present
 
-
-  black:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: psf/black@stable
-        with:
-          options: --check --verbose --exclude "migrations/"
-          src: ./backend
 
 
 

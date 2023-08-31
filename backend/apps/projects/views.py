@@ -2,7 +2,7 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
 from .models import Project
-from .serializers import ProjectSerializer
+from .serializers import ProjectSerializer, CreateProjectSerializer
 
 
 
@@ -14,7 +14,7 @@ def project_list(request):
         return Response(serializer.data)
 
     elif request.method == 'POST':
-        serializer = ProjectSerializer(data=request.data)
+        serializer = CreateProjectSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)

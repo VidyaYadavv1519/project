@@ -24,6 +24,6 @@ jobs:
         - name: Run Flake8 lint
           uses: py-actions/flake8@v2
           with:
-            args: "./backend --exclude migrations,settings.py --max-line-length=88"
+            max-line-length: "88"
 
 

@@ -4,6 +4,8 @@ from rest_framework import status
 from .models import Project
 from .serializers import ProjectSerializer
 
+
+
 @api_view(['GET', 'POST'])
 def project_list(request):
     if request.method == 'GET':

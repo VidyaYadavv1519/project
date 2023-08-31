@@ -2,7 +2,15 @@ from django.db import models
 from django.conf import settings
 from django.core.validators import MaxValueValidator, MinValueValidator
 import uuid
+from django.utils.translation import gettext_lazy as _
 
+
+class PermissionsType(models.TextChoices):
+    ADMIN= "ADMIN", _("ADMIN")
+    STANDARD = "STANDARD", _("STANDARD")
+"""
+place holder until more specific permissions identified
+"""
 
 class Tag(models.Model):
     name = models.CharField(max_length=15, blank=False)
@@ -45,8 +53,12 @@ class Project(models.Model):
     def __str__(self):
         return self.title + " | " + str(self.creator)
 
-class ProjectMembers(models.Model):
+class ProjectMember(models.Model):
     id = models.UUIDField(primary_key=True,default=uuid.uuid4, editable=False)
     updated_at = models.DateTimeField(auto_now=True)
     project = models.ForeignKey(Project, on_delete=models.CASCADE)
     user = models.ForeignKey(settings.USER_AUTH_MODEL, on_delete=models.CASCADE, blank=True)
+    permissions = models.CharField(max_length= 10, choices=PermissionsType)
+    """
+    can be a boolean field
+    """

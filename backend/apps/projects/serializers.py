@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Project
+from .models import Project, ProjectMember
 
 
 class ProjectSerializer(serializers.ModelSerializer):
@@ -15,4 +15,14 @@ class ProjectSerializer(serializers.ModelSerializer):
             "private",
             "tags",
             "topics",
+        ]
+
+class ProjectMemberSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ProjectMember
+        fields = [
+            "id",
+            "user",
+            "updated_at",
+            "project",
         ]

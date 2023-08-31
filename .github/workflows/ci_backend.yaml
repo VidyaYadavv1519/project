@@ -26,6 +26,7 @@ jobs:
           with:
             max-line-length: "88"
             path: "./backend"
+            exclude: "migrations, settings.py"
 
 
 

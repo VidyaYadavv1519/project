@@ -1,12 +1,12 @@
-from django.db import models
 from django.conf import settings
 from django.core.validators import MaxValueValidator, MinValueValidator
+from django.db import models
 
 
 class Tag(models.Model):
     name = models.CharField(max_length=15, blank=False)
 
-    def __str__(self):
+    def __str__(self) -> str:
         return self.name
 
 
@@ -17,14 +17,14 @@ class Review(models.Model):
         validators=[MaxValueValidator(5), MinValueValidator(0)], blank=False
     )
 
-    def __str__(self):
+    def __str__(self) -> str:
         return str(self.reviewer) + " | " + str(self.rating)
 
 
 class Topic(models.Model):
     name = models.CharField(max_length=100)
 
-    def __str__(self):
+    def __str__(self) -> str:
         return self.name
 
 
@@ -39,5 +39,5 @@ class Project(models.Model):
     reviews = models.ManyToManyField(Review, blank=True)
     topics = models.ManyToManyField(Topic, blank=True)
 
-    def __str__(self):
+    def __str__(self) -> str:
         return self.title + " | " + str(self.creator)

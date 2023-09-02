@@ -29,7 +29,6 @@ jobs:
             python-version: "3.11"
 
         - name: Install dependencies
-          working-directory: ./backend
           run: |
             python -m pip install --upgrade pip
             pip install -r requirements.txt
@@ -41,11 +40,9 @@ jobs:
             src: ./backend
 
         - name: Run ruff
-          working-directory: ./backend
-          run: ruff .
+          run: ruff ./backend
 
         - name: Run mypy
-          working-directory: ./backend
-          run: mypy .
+          run: mypy ./backend
 
 

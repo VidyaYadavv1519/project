@@ -157,7 +157,7 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
         IsAuthenticated
         IsAdminUser
         IsAuthenticatedOrReadOnly
-    
+
 """
 
 REST_FRAMEWORK = {

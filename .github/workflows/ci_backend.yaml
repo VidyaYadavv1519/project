@@ -10,7 +10,7 @@ jobs:
     python:
         runs-on: ubuntu-latest
         environment: env
-        env: 
+        env:
             DATABASE_NAME: ${{secrets.DATABASE_NAME}}
             DATABASE_USER: ${{secrets.DATABASE_USER}}
             DATABASE_PASSWORD: ${{secrets.DATABASE_PASSWORD}}

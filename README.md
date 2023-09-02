@@ -31,7 +31,7 @@ The frontend is made with vite and vue.js.
     git clone https://github.com/to-sta/project.git
     ```
 
-3. Create a .env like follows and set up all values. The SQLLITE value is used to run django with a sqllite database local without docker. 
+3. Create a .env like follows and set up all values. The SQLLITE value is used to run django with a sqllite database local without docker.
     ```
     DEBUG=
     SECRET_KEY=
@@ -41,7 +41,7 @@ The frontend is made with vite and vue.js.
     DATABASE_PASSWORD=
     DATABASE_HOST=
     DATABASE_PORT=
-    
+
     ```
 
 4. Then run docker-compose with the following command:

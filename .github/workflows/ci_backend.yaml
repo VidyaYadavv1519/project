@@ -10,6 +10,15 @@ jobs:
     python:
         runs-on: ubuntu-latest
         environment: env
+        env: 
+            DATABASE_NAME: ${{secrets.DATABASE_NAME}}
+            DATABASE_USER: ${{secrets.DATABASE_USER}}
+            DATABASE_PASSWORD: ${{secrets.DATABASE_PASSWORD}}
+            DATABASE_HOST: ${{secrets.DATABASE_HOST}}
+            DATABASE_PORT: ${{secrets.DATABASE_PORT}}
+            DEBUG: ${{vars.DEBUG}}
+            SECRET_KEY: ${{secrets.SECRET_KEY }}
+            SQLLITE: ${{vars.SQLLITE}}
         steps:
         - name: Checkout
           uses: actions/checkout@v3

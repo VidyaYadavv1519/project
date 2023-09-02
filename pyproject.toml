@@ -43,6 +43,7 @@ max-complexity = 10
 line_length = 120
 
 [tool.mypy]
+mypy_path = "backend"
 plugins = ["mypy_django_plugin.main", "mypy_drf_plugin.main" ]
 ignore_missing_imports = "True"
 strict_optional = "True"
@@ -54,3 +55,16 @@ strict_equality = "True"
 
 [tool.django-stubs]
 django_settings_module = "core.settings"
+
+[tool.black]
+exclude = '''
+/(
+  | migrations
+)/
+'''
+# pre-commit does not use the exclude | only added for pre-commit
+force-exclude = '''
+/(
+  | migrations
+)/
+'''

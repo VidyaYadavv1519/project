@@ -31,4 +31,8 @@ jobs:
           working-directory: ./backend
           run: python ruff .
 
+        - name: Run mypy
+          working-directory: ./backend
+          run: python mypy .
+
 

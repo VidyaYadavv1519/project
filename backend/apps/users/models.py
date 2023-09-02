@@ -19,7 +19,7 @@ from django.db import models
 
 
 class CustomUserManager(BaseUserManager["User"]):
-    def create_user(self, email: Any, password: Any=None) -> Any:
+    def create_user(self, email: Any, password: Any = None) -> Any:
         """
         Creates and saves a User with the given email, date of
         birth and password.
@@ -36,7 +36,7 @@ class CustomUserManager(BaseUserManager["User"]):
         user.save(using=self._db)
         return user
 
-    def create_superuser(self, email: Any, password: Any=None) -> Any:
+    def create_superuser(self, email: Any, password: Any = None) -> Any:
         """
         Creates and saves a superuser with the given email, date of
         birth and password.
@@ -68,7 +68,7 @@ class User(AbstractBaseUser):
     def __str__(self) -> str:
         return self.email
 
-    def has_perm(self, perm: Any, obj: Any=None) -> bool:
+    def has_perm(self, perm: Any, obj: Any = None) -> bool:
         "Does the user have a specific permission?"
         # Simplest possible answer: Yes, always
         return True

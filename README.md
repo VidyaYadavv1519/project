@@ -48,4 +48,4 @@ The frontend is made with vite and vue.js.
 
 # Contributing
 
-If you want to contribute to the project. You can create an issue or ask to be assigned to an open issue. We use the [pre-commit]([Docker](https://docs.docker.com/install)) to ensure code quality. Before you submit your pull_request you can run pre-commit to check if there are issues that need to be resolved. It will also take care of file formatting. 
+If you want to contribute to the project. You can create an issue or ask to be assigned to an open issue. We use the [pre-commit]([Docker](https://docs.docker.com/install)) to ensure code quality. Before you submit your pull_request you can run pre-commit to check if there are issues that need to be resolved. It will also take care of file formatting.

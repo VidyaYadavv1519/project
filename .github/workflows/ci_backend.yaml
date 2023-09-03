@@ -9,22 +9,40 @@ on:
 jobs:
     python:
         runs-on: ubuntu-latest
+        environment: env
+        env:
+            DATABASE_NAME: ${{secrets.DATABASE_NAME}}
+            DATABASE_USER: ${{secrets.DATABASE_USER}}
+            DATABASE_PASSWORD: ${{secrets.DATABASE_PASSWORD}}
+            DATABASE_HOST: ${{secrets.DATABASE_HOST}}
+            DATABASE_PORT: ${{secrets.DATABASE_PORT}}
+            DEBUG: ${{vars.DEBUG}}
+            SECRET_KEY: ${{secrets.SECRET_KEY }}
+            SQLLITE: ${{vars.SQLLITE}}
         steps:
         - name: Checkout
           uses: actions/checkout@v3
+
         - name: Set up Python environment
           uses: actions/setup-python@v4
           with:
             python-version: "3.11"
+
+        - name: Install dependencies
+          run: |
+            python -m pip install --upgrade pip
+            pip install -r requirements.txt
+
         - name: Run Black
           uses: psf/black@stable
           with:
             options: --check --verbose --exclude "migrations/"
             src: ./backend
-        - name: Run Flake8 lint
-          run: |
-            python -m pip install --upgrade pip
-            pip install Flake8
-            flake8 ./backend --exclude migrations,settings.py --max-line-length=88
+
+        - name: Run ruff
+          run: ruff ./backend
+
+        - name: Run mypy
+          run: mypy ./backend
 
 

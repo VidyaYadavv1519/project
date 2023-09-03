@@ -1,6 +1,6 @@
-from django.contrib import admin
 from django.urls import path
 from .views import project_detail, project_list
+
 
 app_name = "projects"
 

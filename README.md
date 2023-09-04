@@ -48,4 +48,22 @@ The frontend is made with vite and vue.js.
 
 # Contributing
 
-If you want to contribute to the project. You can create an issue or ask to be assigned to an open issue. We use the [pre-commit]([Docker](https://docs.docker.com/install)) to ensure code quality. Before you submit your pull_request you can run pre-commit to check if there are issues that need to be resolved. It will also take care of file formatting.
+If you want to contribute to the project you can create an issue or ask to be assigned to an open issue.
+
+Contributing workflow:
+1. [Fork](https://docs.github.com/de/get-started/quickstart/fork-a-repo) the repo
+2. Create a new branch with a name related to your changes
+    ```bash
+    git branch <branchName>
+    ```
+3. Make your changes and stage the commit
+4. run [pre-commit](https://docs.docker.com/install)
+to ensure code quality. If you haven't installed pre-commit yet then you can do so with the following command:
+    ```bash
+    pip install pre-commit
+    ```
+5. commit your changes
+    ```bash
+    git push origin <branchName>
+    ```
+6. [open a Pull Request](https://docs.github.com/de/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests) with related title and description

@@ -63,9 +63,6 @@ class ProjectMember(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     project = models.ForeignKey(Project, on_delete=models.CASCADE)
     user = models.ForeignKey(
-        settings.USER_AUTH_MODEL, on_delete=models.CASCADE, blank=True
+        settings.AUTH_USER_MODEL, on_delete=models.CASCADE, blank=True
     )
-    permissions = models.CharField(max_length=10, choices=PermissionsType)
-    """
-    can be a boolean field
-    """
+    permissions = models.CharField(max_length=10, choices=PermissionsType.choices)

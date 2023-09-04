@@ -22,6 +22,27 @@ repos:
       - id: ruff
         args: [--fix, --exit-non-zero-on-fix]
 
+  # - repo: https://github.com/pre-commit/mirrors-mypy
+  #   rev: v1.5.1
+  #   hooks:
+  #   -   id: mypy
+  #       args: [
+  #         --strict_optional,
+  #         --no_implicit_optional,
+  #         --warn_unused_ignores,
+  #         --check_untyped_defs,
+  #         --warn_unreachable,
+  #         --strict_equality
+  #       ]
+  #       additional_dependencies: [
+  #         'python-dotenv',
+  #         'django',
+  #         'djangorestframework',
+  #         'django-stubs',
+  #         'djangorestframework-stubs',
+  #         'django-cors-headers'
+  #       ]
+
   - repo: https://github.com/pre-commit/mirrors-prettier
     rev: "v3.0.3"
     hooks:

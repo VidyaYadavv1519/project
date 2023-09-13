@@ -40,7 +40,8 @@ repos:
           'djangorestframework',
           'django-stubs',
           'djangorestframework-stubs',
-          'django-cors-headers'
+          'django-cors-headers',
+          'drf_spectacular'
         ]
 
   - repo: https://github.com/pre-commit/mirrors-prettier

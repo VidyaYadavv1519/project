@@ -19,19 +19,6 @@ class ProjectSerializer(serializers.ModelSerializer):
         ]
 
 
-class CreateProjectSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Project
-        fields = [
-            "creator",
-            "title",
-            "description",
-            "private",
-            "tags",
-            "topics",
-        ]
-
-
 class ProjectMemberSerializer(serializers.ModelSerializer):
     class Meta:
         model = ProjectMember

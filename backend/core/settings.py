@@ -23,8 +23,8 @@ load_dotenv()
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ["SECRET_KEY"]
-DEBUG = os.environ["DEBUG"]
+SECRET_KEY = os.environ.get("SECRET_KEY")
+DEBUG = os.environ.get("DEBUG")
 
 ALLOWED_HOSTS = ["*"]
 
@@ -84,7 +84,7 @@ WSGI_APPLICATION = "core.wsgi.application"
 """
     Env variable SQLLITE is used for development and testing.
 """
-if os.environ["SQLLITE"]:
+if os.environ.get("SQLLITE"):
     DATABASES = {
         "default": {
             "ENGINE": "django.db.backends.sqlite3",
@@ -94,12 +94,12 @@ if os.environ["SQLLITE"]:
 else:
     DATABASES = {
         "default": {
-            "ENGINE": "django.db.backends.postgresql",
-            "NAME": os.environ["DATABASE_NAME"],
-            "USER": os.environ["DATABASE_USER"],
-            "PASSWORD": os.environ["DATABASE_PASSWORD"],
-            "HOST": os.environ["DATABASE_HOST"],
-            "PORT": os.environ["DATABASE_PORT"],
+            "ENGINE": "django.db.backends.postgresql_psycopg2",
+            "NAME": os.environ.get("DATABASE_NAME"),
+            "USER": os.environ.get("DATABASE_USER"),
+            "PASSWORD": os.environ.get("DATABASE_PASSWORD"),
+            "HOST": os.environ.get("DATABASE_HOST"),
+            "PORT": os.environ.get("DATABASE_PORT"),
         }
     }
 
